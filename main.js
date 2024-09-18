@@ -1,10 +1,15 @@
-from flask import Flask, jsonify
+const express = require('express');
+const app = express();
+const port = 8080;
 
-app = Flask(__name__)
+const data = {
+  message: true
+}
 
-@app.route('/')
-def home():
-    return jsonify({"message": "Hello, World!"})
+app.get('/', (req, res) => {
+  res.json(data);
+})
 
-if __name__ == '__main__':
-    app.run(debug=True)
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
